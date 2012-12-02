@@ -14,6 +14,9 @@ if [[ $(whence node) != "" && ( "x$URLTOOLS_METHOD" = "x"  || "x$URLTOOLS_METHOD
 elif [[ $(whence python) != "" && ( "x$URLTOOLS_METHOD" = "x" || "x$URLTOOLS_METHOD" = "xpython" ) ]]; then
     alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
     alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+elif [[ $(whence ruby) != "" && ( "x$URLTOOLS_METHOD" = "x" || "x$URLTOOLS_METHOD" = "xruby" ) ]]; then
+    alias urlencode='ruby -r cgi -e "puts CGI.escape(ARGV[0])"'
+    alias urldecode='ruby -r cgi -e "puts CGI.unescape(ARGV[0])"'
 elif [[ $(whence php) != "" && ( "x$URLTOOLS_METHOD" = "x" || "x$URLTOOLS_METHOD" = "xphp" ) ]]; then
     alias urlencode='php -r "echo rawurlencode(\$argv[1]); echo \"\n\";"'
     alias urldecode='php -r "echo rawurldecode(\$argv[1]); echo \"\\n\";"'

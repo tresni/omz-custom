@@ -3,16 +3,21 @@
 #
 # Taken from:
 # http://ruslanspivak.com/2010/06/02/urlencode-and-urldecode-from-a-command-line/
-if [[ ( $(whence node) != "" && "x$URLTOOLS_METHOD" = "x" ) || "x$URLTOOLS_METHOD" = "xnode" ]]; then
+
+if [[ $(whence $URLTOOLS_METHOD) = "" ]]; then
+    URLTOOLS_METHOD=""
+fi
+
+if [[ $(whence node) != "" && ( "x$URLTOOLS_METHOD" = "x"  || "x$URLTOOLS_METHOD" = "xnode" ) ]]; then
     alias urlencode='node -e "console.log(encodeURIComponent(process.argv[1]))"'
     alias urldecode='node -e "console.log(decodeURIComponent(process.argv[1]))"'
-elif [[ ( $(whence python) != "" && "x$URLTOOLS_METHOD" = "x" ) || "x$URLTOOLS_METHOD" = "xpython" ]]; then
+elif [[ $(whence python) != "" && ( "x$URLTOOLS_METHOD" = "x" || "x$URLTOOLS_METHOD" = "xpython" ) ]]; then
     alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
     alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-elif [[ ( $(whence php) != "" && "x$URLTOOLS_METHOD" = "x" ) || "x$URLTOOLS_METHOD" = "xphp" ]]; then
+elif [[ $(whence php) != "" && ( "x$URLTOOLS_METHOD" = "x" || "x$URLTOOLS_METHOD" = "xphp" ) ]]; then
     alias urlencode='php -r "echo rawurlencode(\$argv[1]); echo \"\n\";"'
     alias urldecode='php -r "echo rawurldecode(\$argv[1]); echo \"\\n\";"'
-elif [[ ( $(whence perl) != "" && "x$URLTOOLS_METHOD" = "x" ) || "x$URLTOOLS_METHOD" = "xperl" ]]; then
+elif [[ $(whence perl) != "" && ( "x$URLTOOLS_METHOD" = "x" || "x$URLTOOLS_METHOD" = "xperl" ) ]]; then
     if perl -MURI::Encode -e 1&> /dev/null; then
         alias urlencode='perl -MURI::Encode -ep "uri_encode($ARGV[0]);"'
         alias urldecode='perl -MURI::Encode -ep "uri_decode($ARGV[0]);"'

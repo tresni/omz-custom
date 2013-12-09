@@ -28,7 +28,7 @@ alias ohmyzsh="st ~/.oh-my-zsh"
 # COMPLETION_WAITING_DOTS="true"
 
 SVN_SHOW_BRANCH="true"
-MACPORTS_MAINTAINED=(libsodium libchloride ldns ldns-tools drill gcalcli py-google-api py-icalendar py-oauth2client py-parsedatetime py-uritemplate py-vobject the_silver_searcher)
+MACPORTS_MAINTAINED=(libcurvecpr libsodium libchloride ldns ldns-tools drill gcalcli py-google-api py-icalendar py-oauth2client py-parsedatetime py-uritemplate py-vobject the_silver_searcher)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/

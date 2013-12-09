@@ -13,3 +13,7 @@ else
     alias ag='grep'
     alias ack='grep'
 fi
+
+if [[ $(whence pip-2.7) != "" ]]; then
+    alias pip='sudo pip-2.7'
+fi

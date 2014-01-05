@@ -38,4 +38,3 @@ plugins=(battery git github jira macports nyan osx python screen sublime svn url
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Users/$USER/.bin:/opt/local/bin:/opt/local/sbin:/usr/local/MacGPG2/bin:$PATH

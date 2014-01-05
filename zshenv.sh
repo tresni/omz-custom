@@ -1,3 +1,4 @@
+# This is symlinked to ~/.zshenv
 export PATH=/Users/$USER/.bin:/opt/local/bin:/opt/local/sbin:/usr/local/MacGPG2/bin:$PATH
 
 # Setting PATH for Python 2.7

@@ -1,3 +1,7 @@
 [submodule "remotes/dash"]
 	path = remotes/dash
 	url = https://github.com/tonylotts/oh-my-zsh.git
+[submodule "remotes/osx-security"]
+	path = remotes/osx-security
+	url = https://github.com/Capybara/oh-my-zsh.git
+	branch = secu

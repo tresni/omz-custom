@@ -49,7 +49,7 @@ SVN_SHOW_BRANCH="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(atom battery common-aliases dash encode64 extract gem git github history history-substring-search jira node npm macports nyan osx osx-security python redis-cli rsync ruby screen sudo svn systemadmin theme urltools xcode)
+plugins=(atom brew battery common-aliases dash encode64 extract gem git github history history-substring-search jira node npm nyan osx osx-security python redis-cli rsync ruby screen sudo svn systemadmin theme urltools xcode)
 
 source $ZSH/oh-my-zsh.sh
 

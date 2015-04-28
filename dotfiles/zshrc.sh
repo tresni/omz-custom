@@ -7,11 +7,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="minimal"
-
-# Example aliases
-alias zshconfig="atom ~/.zshrc"
-alias ohmyzsh="atom ~/.oh-my-zsh"
+ZSH_THEME="maximal"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -49,22 +45,22 @@ SVN_SHOW_BRANCH="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(atom brew battery common-aliases dash encode64 extract gem git github history history-substring-search jira node npm nyan osx osx-security python redis-cli rsync ruby screen sudo svn systemadmin theme urltools xcode)
+plugins=(battery common-aliases encode64 extract gem git github history history-substring-search jira lol node npm nyan python redis-cli rsync ruby screen sudo svn systemadmin urltools)
+
+case "$OSTYPE" in
+  darwin*) plugins+=(atom brew brew-cask dash heroku osx osx-security xcode);;
+  linux*) plugins+=(debain)
+esac
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-#doing this in zshenv
-#export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='nano'
+else
+    export EDITOR='atom'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

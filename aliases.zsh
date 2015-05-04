@@ -10,3 +10,7 @@ alias zshrc="\$EDITOR ~/.zshrc"
 alias ohmyzsh="\$EDITOR ~/.oh-my-zsh"
 alias omz_custom="\$EDITOR ~/.oh-my-zsh/custom"
 alias cls="clr"
+
+if [[ $(whence qq) != "" ]]; then
+    alias qq='sudo qq'
+fi

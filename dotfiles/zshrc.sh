@@ -52,7 +52,7 @@ case "$OSTYPE" in
   linux*) plugins+=(debain systemadmin)
 esac
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 # Compilation flags

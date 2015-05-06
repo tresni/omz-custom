@@ -7,6 +7,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
+# shellcheck disable=SC2034
 ZSH_THEME="maximal"
 
 # Set to this to use case-sensitive completion
@@ -28,6 +29,7 @@ ZSH_THEME="maximal"
 # DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
+# shellcheck disable=SC2034
 COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
@@ -40,6 +42,7 @@ COMPLETION_WAITING_DOTS="true"
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
 
+# shellcheck disable=SC2034
 SVN_SHOW_BRANCH="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)

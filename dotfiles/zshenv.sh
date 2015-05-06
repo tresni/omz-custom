@@ -5,7 +5,7 @@ fi
 
 # # Preferred editor for local and remote sessions
 if [[ -z $SSH_CONNECTION && -n "$(which atom)" ]]; then
-    export EDITOR='atom'
+    export EDITOR='atom --wait'
 else
     export EDITOR='nano'
 fi

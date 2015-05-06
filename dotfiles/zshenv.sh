@@ -9,3 +9,10 @@ if [[ -z $SSH_CONNECTION && -n "$(which atom)" ]]; then
 else
     export EDITOR='nano'
 fi
+
+# boot2docker
+if [ -n "$(which boot2docker)" ]; then
+  # this should export varibles
+  # shellcheck disable=SC2091
+  $(boot2docker shellinit 2>/dev/null)
+fi

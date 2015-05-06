@@ -11,6 +11,15 @@ alias ohmyzsh="\$EDITOR ~/.oh-my-zsh"
 alias omz_custom="\$EDITOR ~/.oh-my-zsh/custom"
 alias cls="clr"
 
-if [[ $(whence qq) != "" ]]; then
-    alias qq='sudo qq'
+if [ -n "$(whence qq)" ]; then
+  function qq {
+    case "$1" in
+      "install" | "upgrade")
+        sudo command "qq" "$@"
+        ;;
+      *)
+        command "qq" "$@"
+        ;;
+    esac
+  }
 fi

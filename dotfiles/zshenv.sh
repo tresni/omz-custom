@@ -5,10 +5,7 @@ fi
 
 # # Preferred editor for local and remote sessions
 if [[ -z $SSH_CONNECTION && -n "$(which atom)" ]]; then
-    function atom_editor {
-      atom --wait -- "$@"
-    }
-    export EDITOR=atom_editor
+    export EDITOR=~/.oh-my-zsh/custom/EDITOR
 else
     export EDITOR='nano'
 fi

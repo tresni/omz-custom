@@ -11,6 +11,10 @@ if [ -n "$(whence qq)" ]; then
     case "$1" in
       "install" | "upgrade")
         sudo command "qq" "$@"
+        if [ -n "$(whence brew)" ]; then
+          echo "Fixing permissions for Homebrew"
+          sudo chown -R "$(whoami):admin" "$(brew --prefix)/lib/python2.7/site-packages"
+        fi
         ;;
       *)
         command "qq" "$@"

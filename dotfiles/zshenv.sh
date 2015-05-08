@@ -10,9 +10,10 @@ else
     export EDITOR='nano'
 fi
 
-# boot2docker
+if [ -n "$(whence rbenv)" ]; then
+  eval "$(rbenv init -)"
+fi
+
 if [ -n "$(which boot2docker)" ]; then
-  # this should export varibles
-  # shellcheck disable=SC2091
-  $(boot2docker shellinit 2>/dev/null)
+  eval "$(boot2docker shellinit 2>/dev/null)"
 fi

@@ -4,10 +4,11 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 # # Preferred editor for local and remote sessions
-if [[ -z $SSH_CONNECTION && -n "$(which atom)" ]]; then
+if [[ -z $SSH_CONNECTION && -n "$(whence atom)" ]]; then
     export EDITOR=~/.oh-my-zsh/custom/EDITOR
 else
-    export EDITOR='nano'
+    EDITOR="$(whence nano)"
+    export EDITOR
 fi
 
 if [ -n "$(whence rbenv)" ]; then

@@ -63,3 +63,11 @@ source "$ZSH/oh-my-zsh.sh"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+_KEYS=$(ssh-add -l)
+for key in ~/.ssh/id_{dsa,rsa}.pub; do
+  if [ -f $key ] && ! echo "$_KEYS" | grep -q "$(ssh-keygen -lf $key | awk '{print $2}')"; then
+    ssh-add $key
+  fi
+done
+unset _KEYS

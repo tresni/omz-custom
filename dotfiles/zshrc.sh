@@ -66,7 +66,7 @@ source "$ZSH/oh-my-zsh.sh"
 
 _KEYS=$(ssh-add -l)
 for key in ~/.ssh/id_{dsa,rsa}; do
-  if [ -f $key ] && ! echo "$_KEYS" | grep -q "$(ssh-keygen -lf $key | awk '{print $2}')"; then
+  if [ -f $key ] && [ -f $key.pub ] && ! echo "$_KEYS" | grep -q "$(ssh-keygen -lf $key | awk '{print $2}')"; then
     ssh-add $key
   fi
 done

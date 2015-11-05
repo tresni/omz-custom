@@ -18,3 +18,7 @@ fi
 if [ -n "$(which boot2docker)" ]; then
   eval "$(boot2docker shellinit 2>/dev/null)"
 fi
+
+if [ -n "$(which thefuck)" ]; then
+    eval "$(thefuck --alias)"
+fi

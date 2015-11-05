@@ -6,6 +6,10 @@ alias ohmyzsh="\$EDITOR ~/.oh-my-zsh"
 alias omz_custom="\$EDITOR ~/.oh-my-zsh/custom"
 alias cls="clr"
 
+if [ -e "$HOME/VPNThings/VPN.sh" ]; then
+  alias vpn="\$HOME/VPNThings/VPN.sh"
+fi
+
 if [ -n "$(whence qq)" ]; then
   function qq {
     case "$1" in

@@ -5,7 +5,3 @@
 	path = remotes/osx-security
 	url = https://github.com/Capybara/oh-my-zsh.git
 	branch = secu
-[submodule "remote/command-not-found-OSX"]
-	path = remotes/command-not-found-OSX
-	url = git://github.com/agireud/oh-my-zsh.git
-	branch = command-not-found-OSX

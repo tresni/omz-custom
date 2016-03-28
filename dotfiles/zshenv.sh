@@ -10,15 +10,3 @@ else
     EDITOR="$(whence nano)"
     export EDITOR
 fi
-
-if [ -n "$(whence rbenv)" ]; then
-  eval "$(rbenv init -)"
-fi
-
-if [ -n "$(which boot2docker)" ]; then
-  eval "$(boot2docker shellinit 2>/dev/null)"
-fi
-
-if [ -n "$(which thefuck)" ]; then
-    eval "$(thefuck --alias)"
-fi

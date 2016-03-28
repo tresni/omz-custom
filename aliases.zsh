@@ -26,3 +26,20 @@ if [ -n "$(whence qq)" ]; then
     esac
   }
 fi
+
+if [ -n "$(whence quake)" ]; then
+  function quake {
+    case "$1" in
+      "install" | "upgrade")
+        sudo command "quake" "$@"
+        if [ -n "$(whence brew)" ]; then
+          echo "Fixing permissions for Homebrew"
+          sudo chown -R "$(whoami):admin" "$(brew --prefix)/lib/python2.7/site-packages"
+        fi
+        ;;
+      *)
+        command "quake" "$@"
+        ;;
+    esac
+  }
+fi

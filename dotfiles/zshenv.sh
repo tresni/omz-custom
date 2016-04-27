@@ -10,3 +10,6 @@ else
     EDITOR="$(whence nano)"
     export EDITOR
 fi
+
+export PROJECT_HOME="$HOME/Projects/"
+export WORKON_HOME="$HOME/.virtualenvs"

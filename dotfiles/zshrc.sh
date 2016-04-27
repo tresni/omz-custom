@@ -48,7 +48,7 @@ SVN_SHOW_BRANCH="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(aws battery common-aliases docker encode64 extract gem git github history history-substring-search jira lol node npm nyan python redis-cli rsync ruby screen sudo svn urltools)
+plugins=(aws battery common-aliases docker encode64 extract gem git github history history-substring-search jira lol node npm nyan python redis-cli rsync ruby screen sudo svn urltools virtualenv virtualenvwrapper)
 
 case "$OSTYPE" in
   darwin*) plugins+=(atom brew brew-cask dash heroku osx osx-security xcode);;
@@ -88,11 +88,4 @@ fi
 
 if [ -n "$(whence thefuck)" ]; then
     eval "$(thefuck --alias)"
-fi
-
-if [ -n "$(whence virtualenvwrapper.sh)" ]; then
-  export PROJECT_HOME="$HOME/Projects/"
-  export WORKON_HOME="$HOME/.virtualenvs"
-  # shellcheck source=/usr/local/bin/virtualenvwrapper.sh
-  source "$(whence virtualenvwrapper.sh)"
 fi

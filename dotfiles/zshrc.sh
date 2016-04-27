@@ -89,3 +89,10 @@ fi
 if [ -n "$(whence thefuck)" ]; then
     eval "$(thefuck --alias)"
 fi
+
+if [ -n "$(whence virtualenvwrapper.sh)" ]; then
+  export PROJECT_HOME="$HOME/Projects/"
+  export WORKON_HOME="$HOME/.virtualenvs"
+  # shellcheck source=/usr/local/bin/virtualenvwrapper.sh
+  source "$(whence virtualenvwrapper.sh)"
+fi

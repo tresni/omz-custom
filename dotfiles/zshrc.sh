@@ -75,7 +75,7 @@ done
 unset _KEYS
 
 if [ -n "$(whence docker-machine)" ]; then
-    if [ "$(docker-machine status)" == "Running" ]; then
+    if [ "$(docker-machine status)" = "Running" ]; then
         eval "$(docker-machine env)"
     fi
 fi

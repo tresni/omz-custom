@@ -74,12 +74,10 @@ for key in ~/.ssh/id_{dsa,rsa,ed25519}; do
 done
 unset _KEYS
 
-if [ -n "$(whence boot2docker)" ]; then
-  eval "$(boot2docker shellinit 2>/dev/null)"
-fi
-
 if [ -n "$(whence docker-machine)" ]; then
-    eval "$(docker-machine env)"
+    if [ "$(docker-machine status)" == "Running" ]; then
+        eval "$(docker-machine env)"
+    fi
 fi
 
 if [ -n "$(whence thefuck)" ]; then

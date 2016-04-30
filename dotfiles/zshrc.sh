@@ -48,7 +48,7 @@ SVN_SHOW_BRANCH="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(aws battery common-aliases docker encode64 extract gem git github history history-substring-search jira lol node npm nyan python redis-cli rsync ruby screen sudo svn urltools virtualenv virtualenvwrapper)
+plugins=(aws battery common-aliases docker encode64 extract gem git github history history-substring-search jira lol node npm nyan python rbenv redis-cli rsync ruby screen sudo svn urltools virtualenv virtualenvwrapper)
 
 case "$OSTYPE" in
   darwin*) plugins+=(atom brew brew-cask dash heroku osx osx-security xcode);;
@@ -73,10 +73,6 @@ for key in ~/.ssh/id_{dsa,rsa,ed25519}; do
   fi
 done
 unset _KEYS
-
-if [ -n "$(whence rbenv)" ]; then
-  eval "$(rbenv init -)"
-fi
 
 if [ -n "$(whence boot2docker)" ]; then
   eval "$(boot2docker shellinit 2>/dev/null)"

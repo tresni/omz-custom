@@ -74,12 +74,6 @@ for key in ~/.ssh/id_{dsa,rsa,ed25519}; do
 done
 unset _KEYS
 
-if [ -n "$(whence docker-machine)" ]; then
-    if [ "$(docker-machine status)" = "Running" ]; then
-        eval "$(docker-machine env)"
-    fi
-fi
-
 if [ -n "$(whence thefuck)" ]; then
     eval "$(thefuck --alias)"
 fi

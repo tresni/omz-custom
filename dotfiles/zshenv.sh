@@ -1,6 +1,8 @@
 # This is symlinked to ~/.zshenv
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
 if [[ "$OSTYPE" == darwin* ]]; then
-  export PATH=/Users/$USER/.bin:$PATH
+  export PATH=$PATH:/Users/$USER/.bin
 fi
 
 # # Preferred editor for local and remote sessions
@@ -13,3 +15,9 @@ fi
 
 export PROJECT_HOME="$HOME/Projects/"
 export WORKON_HOME="$HOME/.virtualenvs"
+
+if [[ -n "$(whence go)" ]]; then
+    export GOPATH="$HOME/golang"
+    export GOROOT="/usr/local/opt/go/libexec"
+    export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+fi

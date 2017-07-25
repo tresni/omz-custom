@@ -1,7 +1,7 @@
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}%{$fg[white]%}["
-ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}●%{$reset_color%}]%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="]%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}●%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_SCM_PROMPT_PREFIX=$ZSH_THEME_GIT_PROMPT_PREFIX
 ZSH_THEME_SCM_PROMPT_SUFFIX=$ZSH_THEME_GIT_PROMPT_SUFFIX
 ZSH_THEME_SVN_PROMPT_PREFIX=$ZSH_THEME_GIT_PROMPT_PREFIX
@@ -12,15 +12,19 @@ ZSH_THEME_HG_PROMPT_PREFIX=$ZSH_THEME_GIT_PROMPT_PREFIX
 ZSH_THEME_HG_PROMPT_SUFFIX=$ZSH_THEME_GIT_PROMPT_SUFFIX
 ZSH_THEME_HG_PROMPT_DIRTY=$ZSH_THEME_GIT_PROMPT_DIRTY
 ZSH_THEME_HG_PROMPT_CLEAN=$ZSH_THEME_GIT_PROMPT_CLEAN
+ZSH_THEME_VIRTUALENV_PREFIX="%{$reset_color%}"
+ZSH_THEME_VIRTUALENV_SUFFIX="%{$reset_color%}"
+ZSH_THEME_RVM_PROMPT_PREFIX=ZSH_THEME_VIRTUALENV_PREFIX
+ZSH_THEME_RVM_SUFFIX=ZSH_THEME_VIRTUALENV_SUFFIX
 
 
 vcs_status() {
-    if [[ $(whence in_svn) != "" ]] && in_svn; then
-        svn_prompt_info
-    elif [[ $(whence in_hg) != "" ]] && in_hg; then
-        hg_prompt_info
+    if [[ $(whence in_hg) ]] && [[ $(in_hg) == 1 ]]; then
+      hg_prompt_info
+    elif [[ $(whence in_svn) ]] && [[ $(in_svn) == 1 ]]; then
+      svn_prompt_info
     else
-        git_prompt_info
+      git_prompt_info
     fi
 }
 

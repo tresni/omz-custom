@@ -1,5 +1,6 @@
 # This is symlinked to ~/.zshenv
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export PATH=$PATH:/Users/$USER/.bin

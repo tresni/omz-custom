@@ -37,3 +37,17 @@ fi
 if [ -n "$(whence quake)" ]; then
     alias quake="_quadra_wrapper quake"
 fi
+
+function dogfight_tail {
+    logfile=${@[$#]}
+    servers=($@)
+    servers[$#]=()
+
+    pids=()
+    for server in "${servers[@]}"; do
+        ssh -nt $server "tail -F $logfile" &
+        pids+=($!)
+    done
+    trap 'kill -9 ${pids[@]} && trap - SIGINT' SIGINT
+    trap  wait
+}

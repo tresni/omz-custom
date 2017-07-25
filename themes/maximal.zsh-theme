@@ -28,6 +28,17 @@ vcs_status() {
     fi
 }
 
+env_status() {
+  local prompt
+  prompt=$(virtualenv_prompt_info || pyenv_prompt_info || rvm_prompt_info || chruby_prompt_info)
+  if [ $FOUND_RBENV -eq 1 ] && [[ -z "$prompt" ]]; then
+      prompt=$(rbenv_prompt_info)
+  fi
+  if [[ -n "$prompt" ]]; then
+      echo " %{$reset_color%}%{$fg[white]%}($prompt)%{$reset_color%}"
+  fi
+}
+
 exit_status() {
     local EXIT_STATUS
     if [ -n "${__MAXIMAL_EXIT_CMD}" ]; then
@@ -62,4 +73,4 @@ build_prompt() {
 }
 
 PROMPT='$(build_prompt)'
-RPROMPT=' %B«$b$(vcs_status)'
+RPROMPT=' %B«$b$(vcs_status)$(env_status)'

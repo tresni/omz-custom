@@ -20,11 +20,13 @@ ZSH_THEME_RVM_SUFFIX=ZSH_THEME_VIRTUALENV_SUFFIX
 
 vcs_status() {
     if [[ $(whence in_hg) ]] && [[ $(in_hg) == 1 ]]; then
-      hg_prompt_info
+        hg_prompt_info
     elif [[ $(whence in_svn) ]] && [[ $(in_svn) == 1 ]]; then
-      svn_prompt_info
-    else
-      git_prompt_info
+        svn_prompt_info
+    elif [[ $(whence git_super_status) ]]; then
+        git_super_status
+    elif [[ $(whence git_prompt_info) ]]; then
+        git_prompt_info
     fi
 }
 

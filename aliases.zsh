@@ -51,3 +51,24 @@ function dogfight_tail {
     trap 'kill -9 ${pids[@]} && trap - SIGINT' SIGINT
     trap  wait
 }
+
+# Stub out "hub" when its commands conflict with better "git-extras" commands
+__hub-stub-conflicting-commands() {
+    case "$1" in
+        # may want |fork|pr as well
+        alias)
+            /usr/bin/env git "$@"
+            ;;
+        browse)
+            # Fix for random error that always shows up but doesn't actually matter
+            /usr/bin/env hub "$@" 2>/dev/null
+            ;;
+        pr)
+            # Fix for new pr command being stupid...
+            /usr/bin/env hub pull-request
+            ;;
+        *)
+            /usr/bin/env hub "$@"
+    esac
+}
+alias git='__hub-stub-conflicting-commands'
